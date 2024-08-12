@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     id("com.google.gms.google-services")
-
+    id ("com.google.android.libraries.mapsplatform.secrets-gradle-plugin") version "2.0.1"
 }
 
 android {
@@ -20,6 +20,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("string","apiKeyGoogle","")
     }
 
     buildTypes {
