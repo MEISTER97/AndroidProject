@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CommunityActivity"
+    android:background="@drawable/background10">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="48dp"
+        android:layout_marginStart="32dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_addGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_group"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="86dp"
+        android:layout_marginBottom="48dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_text"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_above="@+id/btn_addGroup"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="32dp"
+        android:background="@android:color/white"
+        android:padding="8dp"
+        android:hint="@string/enter_your_group_name_here"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        />
+
+    <MultiAutoCompleteTextView
+        android:id="@+id/textCommunity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="@string/community_groups"
+        android:textColor="@color/Azure"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textCommunity" />
+
+</RelativeLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterPhoneActivity"
+    android:background="@drawable/background1">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/applegreen"
+        android:text="@string/register_login_with_phone"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/registerOrLoginPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login_register"
+        android:layout_below="@id/textViewTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:textSize="24sp"
+        />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/MoveToEmailRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/email_register"
+        android:layout_below="@id/registerOrLoginPhone"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:textSize="24sp"
+        />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@mipmap/ic_launcher_gg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        />
+
+</RelativeLayout>

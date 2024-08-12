@@ -1,0 +1,30 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:padding="2dp"
+    android:background="@drawable/backgrounduser1">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:textColor="@color/Azure"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_visitProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/visit_profile"
+            android:layout_below="@+id/user_name"
+            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
+            >
+
+        </com.google.android.material.button.MaterialButton>
+
+
+</RelativeLayout>

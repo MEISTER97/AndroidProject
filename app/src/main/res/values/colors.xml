@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="applegreen">#8db600</color>
+    <color name="Aquamarine">#7fffd4</color>
+    <color name="Azure">#f0ffff</color>
+    <color name="Cadetblue">#5f9ea0</color>
+    <color name="Darkmagenta">#8b008b</color>
+    <color name="Darkred">#8b0000</color>
+    <color name="Cornflowerblue">#6495ed</color>
+    <color name="Burlywood">#deb887</color>
+    <color name="Green">#44c947</color>
+    <color name="Red">#b93637</color>
+    <color name="Orange">#c6803b</color>
+
+
+</resources>

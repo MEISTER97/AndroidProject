@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background3"
+    tools:context=".AccountSettingActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/nameText"
+            android:layout_width="116dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:text="@string/profile_name"
+            android:textColor="@color/Azure"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/userName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/edit_text_background"
+            android:layout_weight="3">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/games_genres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/games_genres"
+            android:padding="16dp"
+            android:textSize="18sp"
+            android:textColor="@color/Azure" />
+
+        <LinearLayout
+            android:id="@+id/firstRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:layout_below="@id/games_genres">
+
+            <CheckBox
+                android:id="@+id/checkBox1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/rpg"
+                android:layout_weight="1"
+                android:textColor="@color/Azure" />
+
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/action"
+                android:layout_weight="1"
+                android:textColor="@color/Azure" />
+
+            <CheckBox
+                android:id="@+id/checkBox3"
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:text="@string/adventure"
+                android:layout_weight="1"
+                android:textColor="@color/Azure" />
+
+            <CheckBox
+                android:id="@+id/checkBox4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/fighting"
+                android:layout_weight="1"
+                android:textColor="@color/Azure" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/secondRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:layout_below="@id/firstRow">
+
+            <CheckBox
+                android:id="@+id/checkBox5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/puzzle"
+                android:layout_weight="1"
+                android:textColor="@color/Azure" />
+
+            <CheckBox
+                android:id="@+id/checkBox6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/survival"
+                android:layout_weight="1"
+                android:textColor="@color/Azure" />
+
+            <CheckBox
+                android:id="@+id/checkBox7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/racing"
+                android:layout_weight="1"
+                android:textColor="@color/Azure" />
+
+            <CheckBox
+                android:id="@+id/checkBox8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/strategy"
+                android:layout_weight="1"
+                android:textColor="@color/Azure" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/thirdRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/secondRow">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/platform"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/platforms"
+                android:padding="16dp"
+                android:textSize="18sp"
+                android:textColor="@color/Azure" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fourthRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/thirdRow"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/checkboxPlatform1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/pc"
+                android:layout_weight="1"
+                android:textColor="@color/Azure" />
+
+            <CheckBox
+                android:id="@+id/checkboxPlatform2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/console"
+                android:layout_weight="1"
+                android:textColor="@color/Azure" />
+
+            <CheckBox
+                android:id="@+id/checkboxPlatform3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/mobile"
+                android:layout_weight="1"
+                android:textColor="@color/Azure" />
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_saveChange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/Azure"
+            android:backgroundTint="@color/Darkred" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:srcCompat="@mipmap/ic_launcher_gg"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/fourthRow"
+            />
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

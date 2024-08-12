@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/background3"
+    >
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/good_game_chat"
+        android:backgroundTint="@color/Darkred"
+        android:textSize="18sp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/Azure"
+        android:layout_above="@+id/btn_community"
+        android:layout_marginBottom="16dp"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_community"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/community"
+        android:backgroundTint="@color/Darkred"
+        android:textSize="18sp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/Azure"
+        android:layout_above="@+id/btn_searchUser"
+        android:layout_marginBottom="16dp"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_searchUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search_users"
+        android:backgroundTint="@color/Darkred"
+        android:textSize="18sp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/Azure"
+        android:layout_above="@+id/btn_setting"
+        android:layout_marginBottom="16dp"
+    />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/change_setting"
+        android:backgroundTint="@color/Darkred"
+        android:textSize="18sp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/Azure"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_notification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/notification"
+        android:backgroundTint="@color/Darkred"
+        android:textSize="18sp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/Azure"
+        android:layout_below="@+id/btn_setting"
+        android:layout_marginTop="16dp"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/user_Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:layout_above="@id/btn_chat"
+        android:layout_centerInParent="true"
+        android:textColor="@color/Burlywood"
+        android:layout_marginBottom="16dp"
+        />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/logoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/log_out"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/Darkred"
+        android:textSize="18sp"
+        android:textColor="@color/Azure"
+        />
+
+
+
+
+
+</RelativeLayout>
+

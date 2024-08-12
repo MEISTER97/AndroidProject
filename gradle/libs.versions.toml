@@ -1,0 +1,76 @@
+[versions]
+agp = "8.5.0"
+facebookAndroidSdk = "8.x"
+firebaseAuthVersion = "22.1.1"
+firebaseBom = "33.1.2"
+firebaseFirestore = "25.0.0"
+firebaseUiAuth = "7.2.0"
+googleServices = "4.4.2"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+appcompat = "1.7.0"
+material = "1.12.0"
+activity = "1.9.0"
+constraintlayout = "2.1.4"
+firebaseAuth = "23.0.0"
+materialVersion = "1.3.0"
+playServicesAuth = "21.2.0"
+googleGmsGoogleServices = "4.4.2"
+recyclerview = "1.3.2"
+navigationFragment = "2.6.0"
+navigationUi = "2.6.0"
+recyclerviewVersion = "1.2.0"
+
+[libraries]
+
+#com-google-firebase-firebase-auth = { module = "com.google.firebase:firebase-auth" }
+#firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+#firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+#firebase-ui-auth = { module = "com.firebaseui:firebase-ui-auth", version.ref = "firebaseUiAuth" }
+#google-firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+#google-firebase-auth = { module = "com.google.firebase:firebase-auth" }
+#junit = { group = "junit", name = "junit", version.ref = "junit" }
+#ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+#espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+#appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+#material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+#activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+#constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+#firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
+
+
+# Firebase libraries
+facebook-android-sdk = { module = "com.facebook.android:facebook-android-sdk", version.ref = "facebookAndroidSdk" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+firebase-appcheck-playintegrity = { module = "com.google.firebase:firebase-appcheck-playintegrity" }
+firebase-auth-v2211 = { module = "com.google.firebase:firebase-auth", version.ref = "firebaseAuthVersion" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-database = { module = "com.google.firebase:firebase-database" }
+firebase-firestore = { module = "com.google.firebase:firebase-firestore", version.ref = "firebaseFirestore" }
+firebase-ui-auth = { module = "com.firebaseui:firebase-ui-auth", version.ref = "firebaseUiAuth" }
+firebase-auth = { module = "com.google.firebase:firebase-auth", version.ref = "firebaseAuth" }
+
+# AndroidX and Google libraries
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+google-firebase-database = { module = "com.google.firebase:firebase-database" }
+google-services = { module = "com.google.gms:google-services", version.ref = "googleServices" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+
+# Test libraries
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+material-v130 = { module = "com.google.android.material:material", version.ref = "materialVersion" }
+play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
+recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
+navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigationFragment" }
+navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version.ref = "navigationUi" }
+recyclerview-v120 = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerviewVersion" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
+
