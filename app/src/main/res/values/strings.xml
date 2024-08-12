@@ -35,7 +35,6 @@
     <string name="pc">PC</string>
     <string name="main">Main</string>
     <string name="search_users">Search Users</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hello">hello</string>
     <!-- Strings used for fragments for navigation -->
