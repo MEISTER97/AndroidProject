@@ -21,8 +21,7 @@ import java.util.List;
 public class LoginPhoneActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private static final String TAG = "LoginRegisterActivity";
-    int AUTHUI_REQUEST_CODE = 10001;
+
 
 
     @Override
@@ -68,9 +67,7 @@ public class LoginPhoneActivity extends AppCompatActivity {
             // ...
         } else {
             // Sign in failed. If response is null the user canceled the
-            // sign-in flow using the back button. Otherwise check
-            // response.getError().getErrorCode() and handle the error.
-            // ...
+
         }
     }
 

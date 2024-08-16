@@ -34,10 +34,10 @@ import java.util.List;
 import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
-    TextInputEditText editTextEmail, editTextPassword;
-    MaterialButton buttonLog;
-    ProgressBar progressBar;
-    MaterialButton buttonLogPhone,btn_registerNow;
+    private TextInputEditText editTextEmail, editTextPassword;
+    private MaterialButton buttonLog;
+    private  ProgressBar progressBar;
+    private MaterialButton buttonLogPhone,btn_registerNow;
 
 
     private FirebaseAuth mAuth;
@@ -58,9 +58,7 @@ public class LoginActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (user == null) {
-              //      signIn();
-                } else {
+                if (user != null) {
                     transactToMainActivity();
                 }
             }
@@ -195,23 +193,6 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void signIn() {
-        // Choose authentication providers
-        List<AuthUI.IdpConfig> providers = Arrays.asList(
-                new AuthUI.IdpConfig.EmailBuilder().build(),
-                new AuthUI.IdpConfig.PhoneBuilder().build()
-        );
-
-        // Create and launch sign-in intent
-        Intent signInIntent = AuthUI.getInstance()
-                .createSignInIntentBuilder()
-                .setAvailableProviders(providers)
-                .setLogo(R.drawable.gg)
-                .setTheme(R.style.MySuperAppTheme)
-                .build();
-
-        signInLauncher.launch(signInIntent);
-    }
 
 
 

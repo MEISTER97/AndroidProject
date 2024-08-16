@@ -36,13 +36,11 @@ public class FriendChatActivity extends AppCompatActivity {
     private EditText editTextMessage;
     private static final int MAX_MESSAGES = 30;
 
-    String friendId;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friend_chat);
-        friendId = getIntent().getStringExtra("FRIEND_ID");
+        String friendId = getIntent().getStringExtra("FRIEND_ID");
 
         if (friendId != null) {
             Log.d(TAG, "Received FRIEND_ID: " + friendId);
