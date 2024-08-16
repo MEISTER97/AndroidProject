@@ -1,7 +1,7 @@
 # Gaming Social App
 
 ## Project Overview
-The project is a gaming social app where players can register and search for other players with common interests.
+This project is a gaming social app where players can register and search for other players with common interests.
 
 ## App Structure
 
@@ -14,7 +14,7 @@ The project is a gaming social app where players can register and search for oth
 ### First-Time User Setup
 - First-time users must set up their accounts.
 - The account name cannot be empty.
-- Users must select at least one interest and platform; otherwise, their profiles will not be searchable.
+- Users must select at least one interest and one platform; otherwise, their profiles will not be searchable.
 
 ### Profile Picture Selection
 - Users can select from up to 9 profile pictures (8 predefined and 1 default).
@@ -22,7 +22,7 @@ The project is a gaming social app where players can register and search for oth
 ### Search Activity
 - Allows users to search for others in Firestore.
 - If the name input is empty, it will search all users.
-- At least one GameGenre and platform must be selected.
+- At least one GameGenre and one platform must be selected.
 - Utilizes fragments: one for search input and one for a RecyclerView to display search results.
 
 ### Profile and Friend Requests
@@ -35,10 +35,21 @@ The project is a gaming social app where players can register and search for oth
 
 ### Chat Activity (GoodGameChat)
 - Users can start conversations with their friends.
-- Displays up to the last 30 messages.
+- Displays up to the last 50 messages.
 - Green messages represent those sent by the user; orange messages represent those sent by friends.
 
 ### Community Activity
 - Any user can create a group (group names must be unique).
 - Users can join groups and write messages.
 - Green messages represent those sent by the user; orange messages represent those sent by other users.
+
+## Use of Firestore
+- **Users**: Each user will have their own ID. Each user will have their username, user ID, genres, platforms, profile picture as an integer, friends, and friend requests.
+- **Community Groups**: Each group will have its own ID. Each group will have its group name and the user ID of the host.
+
+## Use of Realtime Database
+- **Group Chats**: Each message will have an ID, message text, sender ID, sender name, and timestamp.
+- **Chat between 2 users**
+
+## Note
+- There are many "D log" tests used for debugging purposes.
