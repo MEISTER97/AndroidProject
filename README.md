@@ -3,6 +3,9 @@
 ## Project Overview
 This project is a gaming social app where players can register and search for other players with common interests.
 
+[![Watch the video](https://img.youtube.com/vi/_-LBl4CoeBA/maxresdefault.jpg)](https://www.youtube.com/watch?v=_-LBl4CoeBA)
+
+
 ## App Structure
 
 ### Splash Activity
