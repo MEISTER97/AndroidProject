@@ -1,7 +1,7 @@
 package com.example.goodgameproject.callBacks;
 
 import com.example.goodgameproject.utilities.Account;
-import com.example.goodgameproject.utilities.NotificationItem;
+import com.example.goodgameproject.Items.NotificationItem;
 
 import java.util.List;
 

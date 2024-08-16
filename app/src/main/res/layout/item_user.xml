@@ -1,8 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:padding="2dp"
-    android:background="@drawable/backgrounduser1">
+    android:padding="8dp"
+    android:background="@drawable/backgrounduser1"
+    >
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/user_name"
@@ -23,8 +24,18 @@
             android:layout_centerVertical="true"
             android:layout_centerInParent="true"
             >
-
         </com.google.android.material.button.MaterialButton>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_toStartOf="@id/user_name"
+            android:layout_centerInParent="true"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            >
+        </ImageView>
 
 
 </RelativeLayout>

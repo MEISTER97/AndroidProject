@@ -16,53 +16,55 @@
         android:theme="@style/Theme.GoodGameProject"
         tools:targetApi="31">
         <activity
-            android:name=".GroupChatActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CommunityActivity"
-            android:exported="false" />
-        <activity
-            android:name=".FriendChatActivity"
-            android:exported="false" />
-        <activity
-            android:name=".FindFriendChatActivity"
-            android:exported="false" />
-        <activity
-            android:name=".NotificationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".UserProfileActivity"
-            android:exported="false"
-            android:theme="@style/Theme.GoodGameProject" />
-        <activity
-            android:name=".UserSearchActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginPhoneActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RegisterPhoneActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AccountSettingActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RegisterActivity"
-            android:exported="false"
-            android:theme="@style/Theme.Material3.Light.NoActionBar" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="true"
-            android:theme="@style/Theme.Material3.Light.NoActionBar" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".Activities.StartSplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Activities.GroupChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.CommunityActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.FriendChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.FindFriendChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.NotificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.UserProfileActivity"
+            android:exported="false"
+            android:theme="@style/Theme.GoodGameProject" />
+        <activity
+            android:name=".Activities.UserSearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.LoginPhoneActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.RegisterPhoneActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.AccountSettingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.RegisterActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Material3.Light.NoActionBar" />
+        <activity
+            android:name=".Activities.LoginActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Material3.Light.NoActionBar" />
+        <activity
+            android:name=".Activities.MainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

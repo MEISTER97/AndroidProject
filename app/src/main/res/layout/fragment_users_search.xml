@@ -61,7 +61,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="8dp"
+        android:padding="5dp"
         app:layout_constraintTop_toBottomOf="@+id/games_genres"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -95,7 +95,7 @@
             android:text="@string/adventure"
             android:layout_weight="1"
             android:textColor="@color/Burlywood"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             />
 
@@ -106,7 +106,7 @@
             android:text="@string/fighting"
             android:layout_weight="1"
             android:textColor="@color/Burlywood"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             />
 
@@ -141,7 +141,7 @@
             android:text="@string/survival"
             android:layout_weight="1"
             android:textColor="@color/Burlywood"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             />
 
@@ -163,7 +163,7 @@
             android:text="@string/strategy"
             android:layout_weight="1"
             android:textColor="@color/Burlywood"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             />
 

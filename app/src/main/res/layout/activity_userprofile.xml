@@ -5,23 +5,36 @@
     android:padding="16dp"
     android:background="@drawable/background6">
 
+    <ImageView
+        android:id="@+id/imageProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/user_name_text_view"
+        android:layout_centerInParent="true"
+        android:padding="16dp"
+        >
+    </ImageView>
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/user_name_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="24sp"
-        android:textColor="@android:color/black"
+        android:textColor="@color/applegreen"
         android:layout_centerInParent="true"
-        android:layout_above="@+id/games_genres_text" />
+        android:layout_above="@+id/games_genres_text"
+        />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/games_genres_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="24sp"
-        android:textColor="@android:color/black"
+        android:textColor="@color/Azure"
         android:text="@string/genes"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true"
+        android:textStyle="bold"
+        />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/games_genres"
@@ -29,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="24sp"
-        android:textColor="@android:color/black"
+        android:textColor="@color/Orange"
         android:layout_centerInParent="true"
         android:layout_below="@+id/games_genres_text" />
 
@@ -38,10 +51,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="24sp"
-        android:textColor="@android:color/black"
+        android:textColor="@color/Azure"
         android:text="@string/platforms"
         android:layout_centerInParent="true"
-        android:layout_below="@+id/games_genres" />
+        android:layout_below="@+id/games_genres"
+        android:textStyle="bold"
+        />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/games_platforms"
@@ -49,16 +64,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="24sp"
-        android:textColor="@android:color/black"
+        android:textColor="@color/Orange"
         android:layout_centerInParent="true"
-        android:layout_below="@+id/games_platforms_text" />
+        android:layout_below="@+id/games_platforms_text"
+        />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/back"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:backgroundTint="@color/Burlywood"
         android:textColor="@color/black"
         android:layout_alignParentStart="true"
@@ -71,7 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add_friend"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:backgroundTint="@color/Azure"
         android:textColor="@color/black"
         android:layout_alignParentEnd="true"

@@ -11,9 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.example.goodgameproject.R;
 import com.example.goodgameproject.utilities.Account;
-import com.example.goodgameproject.utilities.UserAdapter;
+import com.example.goodgameproject.Adapters.UserAdapter;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class UserSearchResult extends Fragment {
