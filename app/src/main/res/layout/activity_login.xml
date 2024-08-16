@@ -28,6 +28,7 @@
             android:textColor="@color/applegreen"
             android:layout_marginBottom="16dp"
             android:gravity="center"
+            android:textStyle="bold"
             />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -84,15 +85,18 @@
             android:textSize="18sp"
             />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/registerNow"
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_registerNow"
             android:text="@string/click_to_register"
             android:textColor="@color/Darkred"
             android:textSize="20sp"
             android:layout_marginTop="20dp"
             android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/Orange"
+            />
 
     </LinearLayout>
 
@@ -103,6 +107,7 @@
         app:srcCompat="@mipmap/ic_launcher_gg"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:padding="10dp"
         />
 
 </RelativeLayout>

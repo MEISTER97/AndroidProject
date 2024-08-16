@@ -110,9 +110,9 @@ public class NotificationActivity extends AppCompatActivity {
                                     notificationItems.add(new NotificationItem(account.getProfileName(), friendId));
                                     Log.d("NotificationActivity", "Adding notification item: " + account.getProfileName() + ", " + friendId);
 
-                                    // Check if RecyclerView is already set up
+                                    // Check if RecyclerView is already set up, because reading from firestore and passing to the adapter will always happen at the end of the activity
                                     if (adapter == null) {
-                                        runOnUiThread(() -> setupRecyclerView()); // Initialize RecyclerView with data
+                                        runOnUiThread(() -> setupRecyclerView()); // Initialize RecyclerView with data,
                                     } else {
                                         runOnUiThread(() -> adapter.notifyDataSetChanged());
                                     }

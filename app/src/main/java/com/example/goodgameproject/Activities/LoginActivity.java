@@ -37,8 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     TextInputEditText editTextEmail, editTextPassword;
     MaterialButton buttonLog;
     ProgressBar progressBar;
-    MaterialTextView textView;
-    MaterialButton buttonLogPhone;
+    MaterialButton buttonLogPhone,btn_registerNow;
 
 
     private FirebaseAuth mAuth;
@@ -74,13 +73,13 @@ public class LoginActivity extends AppCompatActivity {
         editTextPassword=findViewById(R.id.password);
         buttonLog=findViewById(R.id.btn_login);
         progressBar=findViewById(R.id.progressBar);
-        textView=findViewById(R.id.registerNow);
+        btn_registerNow=findViewById(R.id.btn_registerNow);
         buttonLogPhone=findViewById(R.id.btn_moveToPhoneRegister);
     }
 
     private void initViews() {
 
-        textView.setOnClickListener(new View.OnClickListener() {
+        btn_registerNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);

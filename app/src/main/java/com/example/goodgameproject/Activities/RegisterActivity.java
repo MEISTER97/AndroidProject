@@ -26,8 +26,7 @@ public class RegisterActivity extends AppCompatActivity {
     MaterialButton buttonReg;
     FirebaseAuth mAuth;
     ProgressBar progressBar;
-    MaterialTextView textView;
-    MaterialButton buttonRegPhone;
+    MaterialButton buttonRegPhone,btn_loginNow;
 
 
     @Override
@@ -59,7 +58,7 @@ public class RegisterActivity extends AppCompatActivity {
         editTextPassword=findViewById(R.id.password);
         buttonReg=findViewById(R.id.btn_register);
         progressBar=findViewById(R.id.progressBar);
-        textView=findViewById(R.id.loginNow);
+        btn_loginNow=findViewById(R.id.btn_loginNow);
         buttonRegPhone=findViewById(R.id.btn_moveToPhoneRegister);
 
     }
@@ -67,7 +66,7 @@ public class RegisterActivity extends AppCompatActivity {
     private void initViews()
     {
 
-        textView.setOnClickListener(new View.OnClickListener() {
+        btn_loginNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(getApplicationContext(),LoginActivity.class);
