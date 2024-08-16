@@ -35,7 +35,7 @@ The project is a gaming social app where players can register and search for oth
 
 ### Chat Activity (GoodGameChat)
 - Users can start conversations with their friends.
-- Displays up to the last 50 messages.
+- Displays up to the last 30 messages.
 - Green messages represent those sent by the user; orange messages represent those sent by friends.
 
 ### Community Activity
