@@ -270,6 +270,14 @@ public class AccountSettingActivity extends AppCompatActivity {
         } else {
             profileNameText.setError(null);
         }
+        // Limit to 20 characters
+        if (userName.length() > 20) {
+            profileNameText.setError("Username cannot be longer than 20 letters");
+            return;
+        } else {
+            profileNameText.setError(null);
+        }
+
 
         // Save checkbox states
         saveCheckboxStates();

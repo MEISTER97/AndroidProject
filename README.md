@@ -57,3 +57,4 @@ This project is a gaming social app where players can register and search for ot
 
 ## Note
 - There are many "D log" tests used for debugging purposes.
+- There might be some unexpected errors in the Notification Activity and the FindFriendChat Activity. When Firestore is called to change the data, the RecyclerView might duplicate another item. The main solution to this issue is to return to the main activity and then go back to the affected activity.

@@ -40,7 +40,6 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         this.context =context;
         this.items = items;
         this.mAuth = FirebaseAuth.getInstance();
-
     }
 
 
@@ -68,8 +67,6 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     }
 
     private void declineFriend(String friendId, int position) {
-
-
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         String currentUserId = mAuth.getCurrentUser().getUid();
         DocumentReference userRef = db.collection("users").document(currentUserId);
@@ -170,9 +167,9 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                         userRef.update("friendRequests", friendRequests)
                                 .addOnSuccessListener(aVoid -> {
                                     // Friend request accepted
-
                                 })
                                 .addOnFailureListener(e -> Toast.makeText(context, "Error accepting friend request: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+
 
                         Map<String, Object> addFriendData = new HashMap<>();
                         addFriendData.put("friendId", friendId);
@@ -208,6 +205,29 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                                         targetUserRef.update("friends", targetFriendRequests)
                                                 .addOnSuccessListener(aVoid -> {
                                                     // Friend request updated to accepted for target user
+                                                    if(items.isEmpty()){
+                                                        Log.e(TAG, "Position out of bounds: " + position);
+                                                        notifyItemRemoved(position);
+                                                    }
+                                                    else if(items.size()==1)
+                                                    {
+                                                        items.remove(position);
+                                                        notifyItemRemoved(position);
+                                                    }
+                                                    else {
+                                                        // Remove the item from the list and notify the adapter
+                                                        activity.runOnUiThread(() -> {
+                                                            // First remove the item from the list
+                                                                items.remove(position);
+                                                                // Then notify the adapter about the removal
+                                                                notifyItemRemoved(position);
+                                                                // Optionally notify range change if needed
+                                                                notifyItemRangeChanged(position, items.size());
+
+                                                        });
+
+                                                    }
+
                                                 })
                                                 .addOnFailureListener(e -> Toast.makeText(context, "Error updating friend request for target user: " + e.getMessage(), Toast.LENGTH_SHORT).show());
                                     } else {
@@ -231,10 +251,10 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                 Toast.makeText(context, "Error fetching friend requests: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-        // Remove the item from the list and notify the adapter
-        items.remove(position);
-        notifyItemRemoved(position);
-    }
+
+
+}
+
 
     private int getDrawableForProfileNumber(int profileNumber) {
         switch (profileNumber) {

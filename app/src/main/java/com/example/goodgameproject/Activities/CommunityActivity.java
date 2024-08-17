@@ -68,10 +68,20 @@ public class CommunityActivity extends AppCompatActivity {
 
     private void addGroupToCommunity() {
         String groupName = String.valueOf(textInput.getText()).trim();
+        // Check if the group name is empty
         if (groupName.isEmpty()) {
-            Toast.makeText(this, "The Group name cannot be empty", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "The group name cannot be empty", Toast.LENGTH_SHORT).show();
+            textInput.setError("The group name cannot be empty");
             return;
         }
+        // Limit to 20 characters
+        if (groupName.length() > 20) {
+            textInput.setError("Group name cannot be longer than 20 letters");
+            return;
+        } else {
+            textInput.setError(null);
+        }
+
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {

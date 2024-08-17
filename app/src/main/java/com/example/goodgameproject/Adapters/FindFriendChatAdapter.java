@@ -1,5 +1,7 @@
 package com.example.goodgameproject.Adapters;
 
+import static android.content.ContentValues.TAG;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -79,7 +81,7 @@ public class FindFriendChatAdapter extends RecyclerView.Adapter<FindFriendChatAd
                             break;
                         }
                     }
-
+                    // if manage to find target friend from the current user, then remove the target user from the current user
                     if (requestToRemove != null) {
                         friends.remove(requestToRemove);
                         userRef.update("friends", friends)
@@ -104,12 +106,36 @@ public class FindFriendChatAdapter extends RecyclerView.Adapter<FindFriendChatAd
                                             break;
                                         }
                                     }
-
+                                    // if manage to find current user from the target user, then remove the current user from the target user
                                     if (targetFriendToRemove != null) {
                                         targetFriend.remove(targetFriendToRemove);
                                         targetUserRef.update("friends", targetFriend)
                                                 .addOnSuccessListener(aVoid -> {
                                                     // Friend request removed from target user
+
+                                                    if(items.isEmpty()){
+                                                        Log.e(TAG, "Position out of bounds: " + position);
+                                                        notifyItemRemoved(position);
+                                                    }
+                                                    else if(items.size()==1)
+                                                    {
+                                                        items.remove(position);
+                                                        notifyItemRemoved(position);
+                                                    }
+                                                    else {
+                                                        // Remove the item from the list and notify the adapter
+                                                        activity.runOnUiThread(() -> {
+                                                            // First remove the item from the list
+                                                            items.remove(position);
+                                                            // Then notify the adapter about the removal
+                                                            notifyItemRemoved(position);
+                                                            // Optionally notify range change if needed
+                                                            notifyItemRangeChanged(position, items.size());
+
+                                                        });
+
+                                                    }
+
                                                 })
                                                 .addOnFailureListener(e -> Toast.makeText(context, "Error removing friend request from target user: " + e.getMessage(), Toast.LENGTH_SHORT).show());
                                     } else {
@@ -134,9 +160,6 @@ public class FindFriendChatAdapter extends RecyclerView.Adapter<FindFriendChatAd
             }
         });
 
-        // Remove the item from the list and notify the adapter
-        items.remove(position);
-        notifyItemRemoved(position);
     }
 
     private void startChat(String friendId, int position) {
