@@ -15,8 +15,19 @@
         android:textColor="@color/black"
         android:textStyle="bold"
         android:layout_toEndOf="@+id/targetUser"
-        android:layout_marginStart="45dp"
+        android:layout_marginStart="20dp"
         android:backgroundTint="@color/Burlywood" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_remove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/remove"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_toEndOf="@+id/btn_chat"
+        android:layout_marginStart="20dp"
+        android:backgroundTint="@color/Red" />
 
 
     <ImageView

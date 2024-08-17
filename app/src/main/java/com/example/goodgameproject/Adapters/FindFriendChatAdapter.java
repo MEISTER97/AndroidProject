@@ -1,6 +1,7 @@
 package com.example.goodgameproject.Adapters;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,17 +25,20 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
+import java.util.Map;
 
 public class FindFriendChatAdapter extends RecyclerView.Adapter<FindFriendChatAdapter.FindFriendChatViewHolder>{
     private FirebaseAuth mAuth;
     private List<FindFriendChatItem> items;
     private Activity activity;
+    private Context context;
 
 
     public FindFriendChatAdapter(Activity activity, List<FindFriendChatItem> items) {
         this.items = items;
         this.mAuth = FirebaseAuth.getInstance();
         this.activity = activity;
+        this.context =activity;
     }
 
     @NonNull
@@ -52,8 +56,87 @@ public class FindFriendChatAdapter extends RecyclerView.Adapter<FindFriendChatAd
         holder.imageView.setImageResource(item.getImage());
         holder.btn_chat.setOnClickListener(v -> startChat(item.getTargetId(), position));
 
+        holder.btn_remove.setOnClickListener(v -> RemoveUserFromFriend(item.getTargetId(), position));
+
         loadProfileGamerbyId(item.getTargetId(), holder.imageView);
 
+    }
+
+    private void RemoveUserFromFriend(String friendId,int position) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        String currentUserId = mAuth.getCurrentUser().getUid();
+        DocumentReference userRef = db.collection("users").document(currentUserId);
+
+        userRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful() && task.getResult() != null) {
+                List<Map<String, Object>> friends = (List<Map<String, Object>>) task.getResult().get("friends");
+
+                if (friends != null) {
+                    Map<String, Object> requestToRemove = null;
+                    for (Map<String, Object> request : friends) {
+                        if (friendId.equals(request.get("friendId"))) {
+                            requestToRemove = request;
+                            break;
+                        }
+                    }
+
+                    if (requestToRemove != null) {
+                        friends.remove(requestToRemove);
+                        userRef.update("friends", friends)
+                                .addOnSuccessListener(aVoid -> {
+                                   // remove friend from current user
+
+                                })
+                                .addOnFailureListener(e -> Toast.makeText(context, "Error declining friend request: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+
+                        // Remove the friend from the target user's friends
+                        DocumentReference targetUserRef = db.collection("users").document(friendId);
+
+                        targetUserRef.get().addOnCompleteListener(targetTask -> {
+                            if (targetTask.isSuccessful() && targetTask.getResult() != null) {
+                                List<Map<String, Object>> targetFriend = (List<Map<String, Object>>) targetTask.getResult().get("friends");
+
+                                if (targetFriend != null) {
+                                    Map<String, Object> targetFriendToRemove = null;
+                                    for (Map<String, Object> request : targetFriend) {
+                                        if (currentUserId.equals(request.get("friendId"))) {
+                                            targetFriendToRemove = request;
+                                            break;
+                                        }
+                                    }
+
+                                    if (targetFriendToRemove != null) {
+                                        targetFriend.remove(targetFriendToRemove);
+                                        targetUserRef.update("friends", targetFriend)
+                                                .addOnSuccessListener(aVoid -> {
+                                                    // Friend request removed from target user
+                                                })
+                                                .addOnFailureListener(e -> Toast.makeText(context, "Error removing friend request from target user: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+                                    } else {
+                                        Toast.makeText(context, "Friend request not found for target user", Toast.LENGTH_SHORT).show();
+                                    }
+                                } else {
+                                    Toast.makeText(context, "No friend requests found for target user", Toast.LENGTH_SHORT).show();
+                                }
+                            } else {
+                                Toast.makeText(context, "Error fetching target user's friend requests: " + targetTask.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                    } else {
+                        Toast.makeText(context, "Friend request not found", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(context, "No friend requests found", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(context, "Error fetching friend requests: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Remove the item from the list and notify the adapter
+        items.remove(position);
+        notifyItemRemoved(position);
     }
 
     private void startChat(String friendId, int position) {
@@ -77,13 +160,14 @@ public class FindFriendChatAdapter extends RecyclerView.Adapter<FindFriendChatAd
     public static class FindFriendChatViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         MaterialTextView targetUser;
-        MaterialButton btn_chat;
+        MaterialButton btn_chat,btn_remove;
 
         public FindFriendChatViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imageView);
             targetUser = itemView.findViewById(R.id.targetUser);
             btn_chat = itemView.findViewById(R.id.btn_chat);
+            btn_remove=itemView.findViewById(R.id.btn_remove);
         }
     }
 
