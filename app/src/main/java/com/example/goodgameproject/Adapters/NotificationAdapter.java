@@ -203,7 +203,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                                                                         })
                                                                         .addOnFailureListener(e -> Toast.makeText(context, "Error updating friend request for target user: " + e.getMessage(), Toast.LENGTH_SHORT).show());
                                                             } else {
-                                                                //added friend for some reason
+                                                                Toast.makeText(context, "Friend request not found for target user", Toast.LENGTH_SHORT).show();
                                                             }
                                                         } else {
                                                             Toast.makeText(context, "No friend requests found for target user", Toast.LENGTH_SHORT).show();
