@@ -2,6 +2,7 @@ package com.example.goodgameproject.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -31,7 +32,7 @@ public class CommunityActivity extends AppCompatActivity {
     private CommunityAdapter communityAdapter;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
-    private TextInputEditText textInput;
+    private EditText textInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +68,7 @@ public class CommunityActivity extends AppCompatActivity {
     }
 
     private void addGroupToCommunity() {
-        String groupName = String.valueOf(textInput.getText()).trim();
+        String groupName = textInput.getText().toString().trim();
         // Check if the group name is empty
         if (groupName.isEmpty()) {
             Toast.makeText(this, "The group name cannot be empty", Toast.LENGTH_SHORT).show();

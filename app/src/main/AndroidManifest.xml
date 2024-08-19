@@ -28,7 +28,9 @@
             android:exported="false" />
         <activity
             android:name=".Activities.CommunityActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"
+        />
         <activity
             android:name=".Activities.FriendChatActivity"
             android:exported="false" />

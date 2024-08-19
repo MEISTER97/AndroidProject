@@ -8,6 +8,13 @@
     tools:context=".Activities.CommunityActivity"
     android:background="@drawable/background10">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_below="@+id/textCommunity" />
+
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_main"
         android:layout_width="wrap_content"
@@ -25,22 +32,24 @@
         android:text="@string/add_group"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="86dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="48dp" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/input_text"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/btn_addGroup"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="32dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="110dp"
         android:background="@android:color/white"
-        android:padding="8dp"
         android:hint="@string/enter_your_group_name_here"
-        android:textColorHint="@color/black"
+        android:padding="10dp"
         android:textColor="@color/black"
-        />
+        android:textColorHint="@color/black"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <MultiAutoCompleteTextView
         android:id="@+id/textCommunity"
@@ -50,12 +59,8 @@
         android:layout_marginTop="16dp"
         android:text="@string/community_groups"
         android:textColor="@color/Azure"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="TouchTargetSizeCheck" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textCommunity" />
 
 </RelativeLayout>
