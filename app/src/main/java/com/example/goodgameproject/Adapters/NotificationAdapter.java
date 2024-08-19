@@ -167,80 +167,55 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                         userRef.update("friendRequests", friendRequests)
                                 .addOnSuccessListener(aVoid -> {
                                     // Friend request accepted
+                                    Map<String, Object> addFriendData = new HashMap<>();
+                                    addFriendData.put("friendId", friendId);
+                                    addFriendData.put("accepted", true);
+
+                                    // Add the friend data to the user's "friends" array
+                                    userRef.update("friends", FieldValue.arrayUnion(addFriendData))
+                                            .addOnSuccessListener(aVoid1 -> {
+                                                // Friend added successfully
+                                                Log.d(TAG, "Friend added successfully to the user's friends list.");
+
+                                                // Update the request to 'accepted' in the target user's friends list
+                                                DocumentReference targetUserRef = db.collection("users").document(friendId);
+
+                                                targetUserRef.get().addOnCompleteListener(targetTask -> {
+                                                    if (targetTask.isSuccessful() && targetTask.getResult() != null) {
+                                                        List<Map<String, Object>> targetFriendRequests = (List<Map<String, Object>>) targetTask.getResult().get("friends");
+                                                        if (targetFriendRequests != null) {
+                                                            Map<String, Object> targetRequest = null;
+                                                            for (Map<String, Object> request : targetFriendRequests) {
+                                                                if (currentUserId.equals(request.get("friendId"))) {
+                                                                    targetRequest = request;
+                                                                    break;
+                                                                }
+                                                            }
+
+                                                            if (targetRequest != null) {
+                                                                targetRequest.put("accepted", true);
+                                                                targetUserRef.update("friends", targetFriendRequests)
+                                                                        .addOnSuccessListener(aVoid2 -> {
+                                                                            Log.e(TAG, "Have been added to your friend list boy" );
+                                                                            // Friend request updated to accepted for target user
+
+
+                                                                        })
+                                                                        .addOnFailureListener(e -> Toast.makeText(context, "Error updating friend request for target user: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+                                                            } else {
+                                                                //added friend for some reason
+                                                            }
+                                                        } else {
+                                                            Toast.makeText(context, "No friend requests found for target user", Toast.LENGTH_SHORT).show();
+                                                        }
+                                                    } else {
+                                                        Toast.makeText(context, "Error fetching target user's friend requests: " + targetTask.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                                    }
+                                                });
+                                            })
+                                            .addOnFailureListener(e -> Toast.makeText(context, "Error adding friend: " + e.getMessage(), Toast.LENGTH_SHORT).show());
                                 })
                                 .addOnFailureListener(e -> Toast.makeText(context, "Error accepting friend request: " + e.getMessage(), Toast.LENGTH_SHORT).show());
-
-
-                        Map<String, Object> addFriendData = new HashMap<>();
-                        addFriendData.put("friendId", friendId);
-                        addFriendData.put("accepted", true);
-
-                        // Add the friend data to the user's "friends" array
-                        userRef.update("friends", FieldValue.arrayUnion(addFriendData))
-                                .addOnSuccessListener(aVoid -> {
-                                    // Friend added successfully
-                                    Log.d(TAG, "Friend added successfully to the user's friends list.");
-                                })
-                                .addOnFailureListener(e -> {
-                                });
-
-                        // Update the request to 'accepted' in the target user's friends list
-                        DocumentReference targetUserRef = db.collection("users").document(friendId);
-
-                        targetUserRef.get().addOnCompleteListener(targetTask -> {
-                            if (targetTask.isSuccessful() && targetTask.getResult() != null) {
-                                List<Map<String, Object>> targetFriendRequests = (List<Map<String, Object>>) targetTask.getResult().get("friends");
-
-                                if (targetFriendRequests != null) {
-                                    Map<String, Object> targetRequest = null;
-                                    for (Map<String, Object> request : targetFriendRequests) {
-                                        if (currentUserId.equals(request.get("friendId"))) {
-                                            targetRequest = request;
-                                            break;
-                                        }
-                                    }
-
-                                    if (targetRequest != null) {
-                                        targetRequest.put("accepted", true);
-                                        targetUserRef.update("friends", targetFriendRequests)
-                                                .addOnSuccessListener(aVoid -> {
-                                                    // Friend request updated to accepted for target user
-                                                    if(items.isEmpty()){
-                                                        Log.e(TAG, "Position out of bounds: " + position);
-                                                        notifyItemRemoved(position);
-                                                    }
-                                                    else if(items.size()==1)
-                                                    {
-                                                        items.remove(position);
-                                                        notifyItemRemoved(position);
-                                                    }
-                                                    else {
-                                                        // Remove the item from the list and notify the adapter
-                                                        activity.runOnUiThread(() -> {
-                                                            // First remove the item from the list
-                                                                items.remove(position);
-                                                                // Then notify the adapter about the removal
-                                                                notifyItemRemoved(position);
-                                                                // Optionally notify range change if needed
-                                                                notifyItemRangeChanged(position, items.size());
-
-                                                        });
-
-                                                    }
-
-                                                })
-                                                .addOnFailureListener(e -> Toast.makeText(context, "Error updating friend request for target user: " + e.getMessage(), Toast.LENGTH_SHORT).show());
-                                    } else {
-                                        Toast.makeText(context, "Friend request not found for target user", Toast.LENGTH_SHORT).show();
-                                    }
-                                } else {
-                                    Toast.makeText(context, "No friend requests found for target user", Toast.LENGTH_SHORT).show();
-                                }
-                            } else {
-                                Toast.makeText(context, "Error fetching target user's friend requests: " + targetTask.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        });
-
                     } else {
                         Toast.makeText(context, "Friend request not found", Toast.LENGTH_SHORT).show();
                     }
@@ -252,8 +227,19 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
             }
         });
 
+        if(items.isEmpty()){
+            Log.e(TAG, "Position out of bounds: " + position);
+            notifyItemRemoved(position);
+        }
+        else if(items.size()==1)
+        {
+            items.remove(position);
+            notifyItemRemoved(position);
+        }
 
-}
+
+    }
+
 
 
     private int getDrawableForProfileNumber(int profileNumber) {
